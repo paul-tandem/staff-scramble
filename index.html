@@ -5,19 +5,109 @@
     <link rel="icon" type="image/svg+xml" href="/staff-scramble/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Staff Scramble</title>
-    <script type="module" crossorigin src="/staff-scramble/assets/index-BjXLSMdk.js"></script>
-    <link rel="stylesheet" crossorigin href="/staff-scramble/assets/index-DaCSZjYc.css">
+    <script type="module" crossorigin src="/staff-scramble/assets/index-AeF3bFgX.js"></script>
+    <link rel="stylesheet" crossorigin href="/staff-scramble/assets/index-8g8jAYI_.css">
   </head>
   <body>
-    <div id="game-container">
-      <div id="ui">
-        <div id="score">Score: 0</div>
-        <div id="game-over" class="hidden">
-          <h1>Game Over!</h1>
-          <p>Score: <span id="final-score">0</span></p>
-          <button id="restart-btn">Restart</button>
+    <div class="page-wrapper">
+      <header class="header">
+        <div class="logo">
+          <img src="/staff-scramble/staff-scramble-logo.png" alt="Staff Scramble">
         </div>
-      </div>
+        <h1 class="headline"><span>One key employee.</span> <span>Infinite hazards.</span></br>How long can your business stay in the game?</h1>
+      </header>
+
+      <main class="main-content">
+        <div class="game-section">
+          <div id="game-container">
+            <div id="ui">
+              <div id="score">Score: 0</div>
+
+              <!-- Mobile Touch Controls -->
+              <div class="mobile-controls">
+                <!-- Bottom Left Controls -->
+                <div class="control-group control-group-left">
+                  <button class="control-btn" data-direction="down">↓</button>
+                  <button class="control-btn" data-direction="left">←</button>
+                </div>
+
+                <!-- Bottom Right Controls -->
+                <div class="control-group control-group-right">
+                  <button class="control-btn" data-direction="up">↑</button>
+                  <button class="control-btn" data-direction="right">→</button>
+                </div>
+              </div>
+
+              <div id="game-over" class="hidden">
+                <img src="/staff-scramble/game-over.png" alt="Game Over" class="game-over-image">
+                <div class="hazard-message-container">
+                  <div class="hazard-message-wrap">
+                    <p id="hazard-message" class="hazard-message"></p>
+                  </div>
+                  <div class="hazard-bottom-message-wrap">
+                    <p class="hazard-bottom-message">Without proper systems, one missing person can bring everything to a halt.</p>
+                    <p class="hazard-bottom-message">Download our Key Person Risk Checklist to learn how to protect your organization.</p>
+                  </div>
+                </div>
+                <div class="game-over-buttons">
+                  <button id="restart-btn" class="restart-btn">Play Again</button>
+                  <a href="#save-score-section" class="save-high-score-btn">Save your high score</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <section id="save-score-section" class="save-score-section">
+        <div class="save-score-container">
+          <h3 id="save-score-heading">Save Your High Score to the Leaderboard!</h3>
+          <div id="save-score-form" class="save-score-form">
+            <div class="save-score-input-wrap">
+              <input type="text" id="company-name" placeholder="Company Name" required />
+              <input type="email" id="player-email" placeholder="Your Email" required />
+              <button id="save-score-btn"><img src="/staff-scramble/submit.svg" alt="Submit"></button>
+            </div>
+            <p id="save-message" class="save-message"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="leaderboard-section" class="leaderboard-section">
+        <h3>Leaderboard</h3>
+        <div class="leaderboard-container">
+          <div id="leaderboard-list"></div>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <div class="faq-container">
+          <div class="faq-item">
+            <h2 class="faq-question">What is the point of this game?</h2>
+            <p class="faq-answer">Staff Scramble is a lighthearted look at a serious risk: Key Person Dependency. In the game, your "character" represents a vital employee. The hazards they face—flu season, sudden resignations, or even a simple vacation—are real-world events that can halt your business if your processes aren't institutionalized.</p>
+          </div>
+
+          <div class="faq-item">
+            <h2 class="faq-question">What is "Key Person Dependency"?</h2>
+            <p class="faq-answer">It occurs when a business relies too heavily on the specific knowledge, skills, or presence of one or two individuals. If that person isn't available, the business can't function. Our goal is to help you move from a people-dependent business to a process-driven one.</p>
+          </div>
+
+          <div class="faq-item">
+            <h2 class="faq-question">Why are these "hazards" so dangerous?</h2>
+            <p class="faq-answer">In a perfect world, your business runs like a machine. In the real world, people get sick, burnt out, or move on to new opportunities. If your SOPs (Standard Operating Procedures) and automations live only in an employee's head, your business is effectively "scrambling" every single day.</p>
+          </div>
+
+          <div class="faq-item">
+            <h2 class="faq-question">How do I stop the scramble?</h2>
+            <p class="faq-answer">By building systems that outlast any individual contributor. This involves:</p>
+            <ul class="faq-list">
+              <li>Documenting your core organization processes.</li>
+              <li>Automating repetitive tasks to reduce manual errors.</li>
+              <li>Cross-training team members so there is no "single point of failure."</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
   </body>
 </html>
