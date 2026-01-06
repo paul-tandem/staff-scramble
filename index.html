@@ -4,17 +4,113 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/staff-scramble/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Staff Scramble</title>
-    <script type="module" crossorigin src="/staff-scramble/assets/index-AeF3bFgX.js"></script>
-    <link rel="stylesheet" crossorigin href="/staff-scramble/assets/index-8g8jAYI_.css">
+    <title>Staff Scramble | The Key Person Risk & Bus Factor Game</title>
+    <meta name="description" content="Play Staff Scramble to see if your organization can survive the 'Bus Factor.'">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Staff Scramble",
+        "operatingSystem": "Web",
+        "applicationCategory": "GameApplication",
+        "description": "A Frogger-style simulation game teaching the concepts of Key Person Risk and the Bus Factor in organization management.",
+        "genre": "Educational Game",
+        "offers": {
+          "@type": "Offer",
+          "price": "0"
+        }
+        "author": {
+        "@type": "Organization",
+        "name": "Tandem Studios Inc",
+        "url": "https://www.workintandem.io"
+        }
+      }
+    </script>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://paul-tandem.github.io/staff-scramble/">
+    <meta property="og:title" content="Staff Scramble | The Key Person Risk & Bus Factor Game">
+    <meta property="og:description" content="Play Staff Scramble to see if your organization can survive the 'Bus Factor.'">
+    <meta property="og:image" content="https://cdn.prod.website-files.com/60a55d05618d400cacf3e081/695844627088be19ace96b1d_staff-scramble-opengraph.avif">
+    <style>
+      /* Critical CSS - loads immediately to prevent white flash */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+        color: white;
+        overflow-x: hidden;
+        overflow-y: auto;
+        min-height: 100vh;
+      }
+
+      .page-wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+
+      /* Prevent layout shift for logo */
+      .logo img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        display: block;
+      }
+
+      /* Prevent layout shift for game container */
+      #game-container {
+        width: 100%;
+        height: 85vh;
+        min-height: 600px;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+
+      /* Loading overlay - matches page background */
+      #loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+        z-index: 9999;
+        transition: opacity 0.8s ease-out;
+      }
+
+      #loading-overlay.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+    <script type="module" crossorigin src="/staff-scramble/assets/index-Dcw4Zugi.js"></script>
+    <link rel="stylesheet" crossorigin href="/staff-scramble/assets/index-D9Q9gtMe.css">
   </head>
   <body>
+    <!-- Loading overlay -->
+    <div id="loading-overlay"></div>
+
     <div class="page-wrapper">
       <header class="header">
         <div class="logo">
-          <img src="/staff-scramble/staff-scramble-logo.png" alt="Staff Scramble">
+          <img src="/staff-scramble/staff-scramble-logo.png" alt="Staff Scramble: A Key Person Risk Game" width="500" height="200">
         </div>
-        <h1 class="headline"><span>One key employee.</span> <span>Infinite hazards.</span></br>How long can your business stay in the game?</h1>
+        <h1 class="headline"><span>One key employee.</span> <span>Infinite hazards.</span></br>How long can your organization stay in the game?</h1>
+        <p class="subheadline desktop">Use the arrow keys or WASD to move your character.</p>
+        <p class="subheadline mobile">Tap the on-screen controls to move your character.</p>
       </header>
 
       <main class="main-content">
@@ -39,19 +135,19 @@
               </div>
 
               <div id="game-over" class="hidden">
-                <img src="/staff-scramble/game-over.png" alt="Game Over" class="game-over-image">
+                <img src="/staff-scramble/game-over.png" alt="Game Over" class="game-over-image" width="400" height="300">
                 <div class="hazard-message-container">
                   <div class="hazard-message-wrap">
                     <p id="hazard-message" class="hazard-message"></p>
                   </div>
                   <div class="hazard-bottom-message-wrap">
-                    <p class="hazard-bottom-message">Without proper systems, one missing person can bring everything to a halt.</p>
-                    <p class="hazard-bottom-message">Download our Key Person Risk Checklist to learn how to protect your organization.</p>
+                    <p class="hazard-bottom-message">People don't always stick around — but custom systems do. Learn how to turn your team’s unique expertise into a permanent asset with our <span>Knowledge-to-Systems Playbook.</span></p>
+                    <a href="https://www.workintandem.io/resources/knowledge-to-systems-playbook" class="download-resource-btn">Download the Guide</a>
                   </div>
                 </div>
                 <div class="game-over-buttons">
                   <button id="restart-btn" class="restart-btn">Play Again</button>
-                  <a href="#save-score-section" class="save-high-score-btn">Save your high score</a>
+                  <a href="#save-score-section" class="save-high-score-btn">Save your High Score</a>
                 </div>
               </div>
             </div>
@@ -61,7 +157,7 @@
 
       <section id="save-score-section" class="save-score-section">
         <div class="save-score-container">
-          <h3 id="save-score-heading">Save Your High Score to the Leaderboard!</h3>
+          <h2 id="save-score-heading">Save Your High Score to the Leaderboard!</h2>
           <div id="save-score-form" class="save-score-form">
             <div class="save-score-input-wrap">
               <input type="text" id="company-name" placeholder="Company Name" required />
@@ -74,7 +170,7 @@
       </section>
 
       <section id="leaderboard-section" class="leaderboard-section">
-        <h3>Leaderboard</h3>
+        <h2>Leaderboard</h2>
         <div class="leaderboard-container">
           <div id="leaderboard-list"></div>
         </div>
@@ -82,23 +178,29 @@
 
       <section class="faq-section">
         <div class="faq-container">
+          <h2>FAQ</h2>
           <div class="faq-item">
-            <h2 class="faq-question">What is the point of this game?</h2>
-            <p class="faq-answer">Staff Scramble is a lighthearted look at a serious risk: Key Person Dependency. In the game, your "character" represents a vital employee. The hazards they face—flu season, sudden resignations, or even a simple vacation—are real-world events that can halt your business if your processes aren't institutionalized.</p>
+            <h3 class="faq-question">What is the point of this game?</h3>
+            <p class="faq-answer">Staff Scramble is a lighthearted look at a serious risk: Key Person Risk. In the game, your "character" represents a vital employee. The hazards they face—flu season, sudden resignations, or even a simple vacation—are real-world events that can halt your organization if your processes aren't institutionalized.</p>
           </div>
 
           <div class="faq-item">
-            <h2 class="faq-question">What is "Key Person Dependency"?</h2>
-            <p class="faq-answer">It occurs when a business relies too heavily on the specific knowledge, skills, or presence of one or two individuals. If that person isn't available, the business can't function. Our goal is to help you move from a people-dependent business to a process-driven one.</p>
+            <h3 class="faq-question">What is "Key Person Risk"?</h3>
+            <p class="faq-answer">Key Person Risk (KPR) happens when an organization relies too heavily on individual people for specific knowledge or skills. If that person "scrambles" (leaves, takes ill, or is promoted), the organization is in jeopardy. Our goal is to help you move from an organization depending on a few key people to a process-driven one.</p>
           </div>
 
           <div class="faq-item">
-            <h2 class="faq-question">Why are these "hazards" so dangerous?</h2>
-            <p class="faq-answer">In a perfect world, your business runs like a machine. In the real world, people get sick, burnt out, or move on to new opportunities. If your SOPs (Standard Operating Procedures) and automations live only in an employee's head, your business is effectively "scrambling" every single day.</p>
+            <h3 class="faq-question">What is the "Bus Factor"?</h3>
+            <p class="faq-answer">It represents the risk that comes from knowledge and abilities not being shared among team members. If a key person were to be "hit by a bus" (or suddenly become unavailable), the lack of shared expertise would cause an organization to stall or fail.</p>
           </div>
 
           <div class="faq-item">
-            <h2 class="faq-question">How do I stop the scramble?</h2>
+            <h3 class="faq-question">Why are these "hazards" a problem?</h3>
+            <p class="faq-answer">In a perfect world, your organization runs like a machine. In the real world, people get sick, burnt out, or move on to new opportunities. If your SOPs (Standard Operating Procedures) and automations live only in an employee's head, your organization is effectively "scrambling" every single day.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">How do I stop the scramble?</h3>
             <p class="faq-answer">By building systems that outlast any individual contributor. This involves:</p>
             <ul class="faq-list">
               <li>Documenting your core organization processes.</li>
@@ -108,6 +210,9 @@
           </div>
         </div>
       </section>
+    </div>
+    <div class="footer">
+      <a class="footer-link" href="https://www.workintandem.io">Made with ❤️ by Tandem Studios Inc</a>
     </div>
   </body>
 </html>
